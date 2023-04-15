@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .prompt_area {
+            justify-content: center;
+            align-items: center;
+
+        }
+        iframe {
+            border: none;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .prompt{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .input_selector{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .Input_button,.Input_text{display: none;}
+    </style>
+</head>
+<body>
+<!-- put two iframes side by side in form of columns -->
+    <div style="display: flex; flex-direction: row;height: 80vh;">
+        <iframe src="/html5_ai/pages/input.html" width="50%" ></iframe>
+        <div>
+           
+        </div>
+        <iframe src="/html5_ai/pages/output.html" width="50%" height="100%"></iframe>
+    </div>
+    <div class="prompt_area" style="height: 20vh; width: 100vw;">
+        <!-- add a select tag with options button and text -->
+       <div class="input_selector">
+                <select name="prompt" id="prompt_select" style="border-radius: 10px; border: 1px solid black; padding: 10px;">
+                    <option value="button">Button</option>
+                    <option value="text">Text</option>
+                </select> 
+            <div class="Input_button">
+                <select>
+                    <!-- RED: rgb(255, 0, 0)  #ff0000
+
+Green : rgb(0, 128, 0)#008000
+
+Blue: rgb(0, 0, 255)#0000ff 
+
+Yellow: rgb(255, 255, 0)#ffff00
+
+Pink: rgb(255, 0, 255) #ff00ff
+
+Cyan: rgb(0, 255, 255) #00ffff
+
+grey: rgb(128, 128, 128) #808080
+
+White: rgb(255, 255, 255) #ffffff
+
+Black: rgb(0, 0, 0) #000000 -->
+                    <option value="red">Red</option>
+                    <option value="green">Green</option>
+                    <option value="blue">Blue</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="pink">Pink</option>
+                    <option value="cyan">Cyan</option>
+                    <option value="grey">Grey</option>
+                    <option value="white">White</option>
+                    <option value="black">Black</option>
+                </select>
+                <div class="color" style="height: 30px;width: 30px; vertical-align: middle;"></div>
+                <input type="text" id="prompt_description" placeholder="Enter text in button" style="width: 20vw; border-radius: 10px; border: 1px solid black; padding: 10px;">
+         
+            </div>
+            <div class="Input_text">
+                <input type="text" id="prompt_description" placeholder="Enter starting few words of text you want to change" style="width: 40vw; border-radius: 10px; border: 1px solid black; padding: 10px;">
+         
+            </div>
+            <!-- button that says compile -->
+            <button id="compile" style=" border-radius: 10px; border: 1px solid black; padding: 10px;">Compile</button>
+        </div> 
+        <!-- add a input which takes description based on the type of selection made-->
+       
+
+        <div class="prompt"> 
+            <input type="text" id="prompt" placeholder="Enter your prompt here" style="width: 50vw;; border-radius: 10px; border: 1px solid black; padding: 10px;">
+            <button id="commit" style=" border-radius: 10px; border: 1px solid black; padding: 10px;">Commit</button>
+        </div> 
+    </div>
+    <!-- create javascript so that when a person selects button only Input_button is visible and when a person selects text then Input_text is visible -->
+    <script>
+        var prompt_select = document.getElementById("prompt_select");
+        var input_button = document.querySelector(".Input_button");
+        var input_text = document.querySelector(".Input_text");
+        prompt_select.addEventListener("change", function(){
+            if(prompt_select.value == "button"){
+                input_button.style.display = "flex";
+                input_text.style.display = "none";
+            }
+            else if(prompt_select.value == "text"){
+                input_text.style.display = "flex";
+                input_button.style.display = "none";
+            }
+        })
+        // change color of the color div based on the color selected
+        var color = document.querySelector(".color");
+        var color_select = document.querySelector(".Input_button select");
+        color_select.addEventListener("change", function(){
+            if(color_select.value == "red"){
+                color.style.backgroundColor = "#ff0000";
+            }
+            else if(color_select.value == "green"){
+                color.style.backgroundColor = "#008000";
+            }
+            else if(color_select.value == "blue"){
+                color.style.backgroundColor = "#0000ff";
+            }
+            else if(color_select.value == "yellow"){
+                color.style.backgroundColor = "#ffff00";
+            }
+            else if(color_select.value == "pink"){
+                color.style.backgroundColor = "#ff00ff";
+            }
+            else if(color_select.value == "cyan"){
+                color.style.backgroundColor = "#00ffff";
+            }
+            else if(color_select.value == "grey"){
+                color.style.backgroundColor = "#808080";
+            }
+            else if(color_select.value == "white"){
+                color.style.backgroundColor = "#ffffff";
+            }
+            else if(color_select.value == "black"){
+                color.style.backgroundColor = "#000000";
+            }
+        })
+    </script>
+</body>
+</html>

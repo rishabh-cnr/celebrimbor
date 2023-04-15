@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .input_file{
+            width: 80%;
+            height: 100vh;
+            background-color: lightgrey;
+            float: left;
+        }
+        .programmability{
+            width: 20%;
+            height: 100vh;
+            background-color: rgb(37, 37, 37);
+            float: right;
+        }
+        #selector{
+            width: 80%;
+            /* center */
+            margin: 0 auto;
+            /* make it vertical center */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 5vh;
+            height: 7vh;
+            background-color: blue;
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            border-radius: 10px;
+        }
+        .history{
+            width: 80%;
+            /* center */
+            margin: 0 auto;
+            /* make it vertical center */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 5vh;
+            height: 50vh;
+            background-color: rgb(51, 50, 50);
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            border-radius: 10px;
+        }
+        #prompt{
+            width: 80%;
+            /* center */
+            margin: 0 auto;
+            /* make it vertical center */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 5vh;
+            height: 7vh;
+            background-color: rgb(51, 50, 50);
+            color: white;
+            border: none;
+            border-radius: 10px;
+        }
+        .buttons{
+            width: 80%;
+            /* center */
+            margin: 0 auto;
+            /* make it vertical center */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 5vh;
+            background-color: rgb(51, 50, 50);
+            color: white;
+            border: none;
+            border-radius: 10px;
+        }
+        #Compile{
+            width: 40%;
+            /* center */
+            margin: 2vh;
+            /* make it vertical center */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 7vh;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 10px;
+        }
+        #Commit{
+            width: 40%;
+            /* center */
+            margin: 2vh ;
+            /* make it vertical center */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 7vh;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 10px;
+        }
+        .overlay{
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1;
+            top: 0;
+            left: 0;
+            display: none;
+        }   
+        .overlay_content{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .overlay_content input{
+            width: min-content;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        .overlay_content button{
+            width: min-content;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: blue;
+            color: white;
+        }
+        
+    </style>
+</head>
+<body>
+    
+<!-- give me 2 div which cover the whole page in form of 2 columns in ratio 80:20 -->
+<!-- 1st div will have the input file -->
+<!-- 2nd div will have prompt, Recent Changes , buttons-->
+<div class="overlay">
+    <div class="overlay_content">
+        <input type="text" name="Path" id="Path" placeholder="Enter the path of file">
+        <button id="select">Select</button>
+        <button id="close">Close</button>
+    </div>
+</div>
+<div class="input_file">
+    <object type="text/html" width="800px" height="600px" style="overflow:auto">
+    </object>
+</div>
+<div class="programmability">
+<button id="selector">Select .HTML file</button>
+<div class="history"></div>
+<div class="prompt">
+    <!-- make a text input like chat gpt and 2 buttons which say compile and commit -->
+    <input id="prompt" type="text" placeholder="Enter your changes in form of percentage">
+    <br>
+    <div class="buttons">
+        <button id="Compile">Compile</button>
+        <button id="Commit">Commit</button>
+    </div>
+   
+</div>
+</div>
+<script>
+    // make selector button create a overlay div which has a input text to get path of file and a button which says select file
+     //make the overlay close when clicked outside
+    var selector = document.getElementById("selector");
+    var overlay = document.querySelector(".overlay");
+    var select = document.getElementById("select");
+    var close = document.getElementById("close");
+    selector.addEventListener("click",function(){
+        overlay.style.display = "block";
+    })
+    select.addEventListener("click",function(){
+        var path = document.getElementById("Path").value;
+        console.log(path);
+        var object = document.querySelector("object");
+        object.data = path;
+        object.style.display = "block";
+        overlay.style.display = "none";
+    })
+    close.addEventListener("click",function(){
+        overlay.style.display = "none";
+    })
+    window.addEventListener("click",function(e){
+        if(e.target == overlay){
+            overlay.style.display = "none";
+        }
+    })
+
+
+   
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <title>Upload Page</title>
+    <style>
+
+      body {
+        background-color: lightgrey;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      form {
+        margin: 0 auto;
+        align-self: center;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 5px 5px 10px grey;
+        /* align it middle vertically */}
+        .form{
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      h1 {
+        text-align: center;
+      }
+      label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 10px;
+      }
+      input[type="text"], textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px grey;
+      }
+      .parse {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .save:hover {
+        background-color: #3e8e41;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lets start by uploading the file</h1>
+    <div class="form">
+       <form method="POST" class="post-form" enctype="multipart/form-data" >
+      <input type="file" name="file" id="file">
+      <button type="submit" class="parse">Display</button>
+    </form>
+    </div>
+   
+  <script>
+    // remove H1 once user start selecting file
+    document.getElementById("file").addEventListener("change", function(){
+      document.getElementById("h1").style.display = "none";
+    });
+  </script>
+  </body>
+
+</html>
