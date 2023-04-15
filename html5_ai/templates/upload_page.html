@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <title>Upload Page</title>
+    <style>
+      body {
+        background-color: lightgrey;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      form {
+        margin: 0 auto;
+        width: 50%;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 5px 5px 10px grey;
+      }
+      h1 {
+        text-align: center;
+      }
+      label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 10px;
+      }
+      input[type="text"], textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px grey;
+      }
+      .parse {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .save:hover {
+        background-color: #3e8e41;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My Form</h1>
+    <form method="POST" class="post-form" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="parse">Display</button>
+    </form>
+  </body>
+</html>
