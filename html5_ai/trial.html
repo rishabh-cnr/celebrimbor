@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .prompt_area {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        iframe {
+            border: none;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<!-- put two iframes side by side in form of columns -->
+    <div style="display: flex; flex-direction: row;" height="80vh">
+        <iframe src="/html5_ai/templates/input.html" width="50%" ></iframe>
+        <iframe src="/html5_ai/templates/output.html" width="50%" height="100%"></iframe>
+    </div>
+    <div class="prompt_area" style="height: 20vh; width: 100vw;">
+        <p>Enter your name:</p>
+        <input type="text" id="name" name="name" placeholder="Your name.." width="60vw">
+        <input type="submit" value="Submit">
+    </div>
+</body>
+</html>
