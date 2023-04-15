@@ -1,3 +1,6 @@
+open_ai_key = "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"
+
+
 required_rgb_dict = {
     'red':[255,0,0],
     'green':[0,128,0],
