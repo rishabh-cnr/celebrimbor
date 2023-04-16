@@ -146,7 +146,22 @@
             background-color: blue;
             color: white;
         }
-        
+        #file_selector{
+            display: none;
+            width: 80%;
+            /* center */
+            margin: 0 auto;
+            /* make it vertical center */
+            align-items: center;
+            justify-content: center;
+            margin-top: 5vh;
+            height: 7vh;
+            background-color: blue;
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
@@ -162,12 +177,14 @@
     </div>
 </div>
 <div class="input_file">
-    <object type="text/html" width="800px" height="600px" style="overflow:auto">
+    <object type="text/html" id="canvas" width="100%" height="100%" style="overflow:auto">
     </object>
 </div>
 <div class="programmability">
-<button id="selector">Select .HTML file</button>
+<button id="selector">Select .HTML path </button>
+<button id="file_selector">Select element</button>
 <div class="history"></div>
+
 <div class="prompt">
     <!-- make a text input like chat gpt and 2 buttons which say compile and commit -->
     <input id="prompt" type="text" placeholder="Enter your changes in form of percentage">
@@ -176,10 +193,41 @@
         <button id="Compile">Compile</button>
         <button id="Commit">Commit</button>
     </div>
-   
+
 </div>
 </div>
 <script>
+        var selectButton = document.getElementById('file_selector');
+
+// Add a click event listener to the button
+selectButton.addEventListener('click', function() {
+    
+        console.log("a is running");
+  // Add a click event listener to the object element
+  var canvas = document.getElementById('canvas');
+  canvas.contentDocument.addEventListener('click', function(event) {
+    // Get the clicked element
+    var clickedElement = event.target;
+    
+    // Log the clicked element to the console
+    console.log('Clicked element:', clickedElement);
+    $.ajax({
+    type: 'POST',
+    url: 'html5_ai/views.py',
+    data: {
+      'variable_name': variableValue,
+      'csrfmiddlewaretoken': '{{ csrf_token }}'
+    },
+    success: function(response) {
+      // Handle the server response here
+    },
+    error: function(xhr, status, error) {
+      // Handle any errors here
+    }
+  });
+  });
+});
+    var path = "";
     // make selector button create a overlay div which has a input text to get path of file and a button which says select file
      //make the overlay close when clicked outside
     var selector = document.getElementById("selector");
@@ -190,12 +238,15 @@
         overlay.style.display = "block";
     })
     select.addEventListener("click",function(){
-        var path = document.getElementById("Path").value;
+        path = document.getElementById("Path").value;
         console.log(path);
+        selector.style.display = "none";
         var object = document.querySelector("object");
         object.data = path;
         object.style.display = "block";
         overlay.style.display = "none";
+        document.querySelector("#file_selector").style.display = "block";
+
     })
     close.addEventListener("click",function(){
         overlay.style.display = "none";
@@ -205,9 +256,8 @@
             overlay.style.display = "none";
         }
     })
+    // make a file selector button which will show a list of files in the history
 
-
-   
 </script>
 </body>
 </html>
