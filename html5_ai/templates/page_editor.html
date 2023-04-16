@@ -211,11 +211,17 @@ selectButton.addEventListener('click', function() {
     
     // Log the clicked element to the console
     console.log('Clicked element:', clickedElement);
+
+    var styles = window.getComputedStyle(clickedElement);
+    console.log('Styles:', styles);
+
+
     $.ajax({
     type: 'POST',
     url: 'html5_ai/views.py',
     data: {
       'variable_name': variableValue,
+      'css_properties': JSON.stringify(styles),
       'csrfmiddlewaretoken': '{{ csrf_token }}'
     },
     success: function(response) {

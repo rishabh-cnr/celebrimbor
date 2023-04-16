@@ -3,5 +3,3 @@ from . import views
 urlpatterns = [
     path('upload',views.uploadPage),
 ]
-
-#hello
