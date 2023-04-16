@@ -1,14 +1,280 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>the CyberBrew Oasis</title>
+    <link rel="stylesheet" href="style.css">
+     <!-- Unicons -->
+     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 </head>
-<body style="background-color: aqua;">
-    <p id="r" style="font-size: calc();">hello world</p>
-    <button class="b1" id="g2">Success</button>
+<body>
+    <div class="header">
+    <div class="nav">
+        <ul>
+        
+          <li style="float:right"><a href="ngo.html">NGO</a> </li>
+          <li style="float:right"><a href="#Contact">Contact us</a> </li>  
+        <li style="float:right"><a href="#menu"> Menu</a></li>
+        <li style="float:right"><a href="#book-a-table">Book a table</a></li>
+        <li style="float:right"><a href="#outlet"> Outlet</a></li>
+        <li style="float:right"><a href="#home"> Home</a></li>
+        <li style="float:right"><a href="staff2.html"> Login</a></li>
+        
+        </ul>
+    </div>
+    </div>
+    
+    
+    <div class="home" id="home">
+        <img src="assets/home_4.png" alt="main_image">
+        <div class="text">
+            THE <br> CyberBrew Oasis
+            <div class="button" onclick="scrollIntoView(Contact);">
+              <p style="text-decoration:none">Reserve now</p>
+              
+            </div>
+        </div>
+    </div>
+    <div class="menu" id="menu">  
+   
+        <div class="logo_menu clicker">
+            <img src="assets/menu.png" alt="" onclick="show()">
+    </div> 
+    <div id="hiddendiv">
+        <div class="container">
+            <div class="card">
+              <div class="imgBx">
+                <img src="assets/dish.png">
+              </div>
+              <div class="contentBx">
+                <h2>Main Course</h2>
+                
+                <br>
+                <a id="maincourse" onclick="displayMenuDialog(this.id)">Show</a>
+              </div>
+            </div>
+            <div class="card">
+                <div class="imgBx">
+                  <img src="assets/dish2.png">
+                </div>
+                <div class="contentBx">
+                  <h2>Rice</h2>
+                  
+                  <br>
+                  <a id="rice" onclick="displayMenuDialog(this.id)">Show Now</a>
+                </div>
+              </div>
+              <div class="card">
+                <div class="imgBx">
+                  <img src="assets/dish3.png">
+                </div>
+                <div class="contentBx">
+                  <h2>Starters</h2>
+                  
+                  <br>
+                  <a id="starter" onclick="displayMenuDialog(this.id)">Show Now</a>
+                </div>
+              </div>
+              <div class="card">
+              <div class="imgBx">
+                <img src="assets/Frame 1.png">
+              </div>
+              <div class="contentBx">
+                <h2>Beverages</h2>
+               
+                <br>
+                <a id="beverage" onclick="displayMenuDialog(this.id)">Show</a>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="card">
+              <div class="imgBx">
+                <img src="assets/noodle2 1.png">
+              </div>
+              <div class="contentBx">
+                <h2>Noodles</h2>
+               
+                <br>
+                <a id="noodle" onclick="displayMenuDialog(this.id)">Show</a>
+              </div>
+            </div>
+            <div class="card">
+                <div class="imgBx">
+                  <img src="assets/soup 1.png">
+                </div>
+                <div class="contentBx">
+                  <h2>Soups</h2>
+                  
+                  <br>
+                  <a id="soup" onclick="displayMenuDialog(this.id)">Show Now</a>
+                </div>
+              </div>
+              <div class="card">
+                <div class="imgBx">
+                  <img src="assets/Frame 2.png">
+                </div>
+                <div class="contentBx">
+                  <h2>Desserts</h2>
+                 
+                  <br>
+                  <a id="desert" onclick="displayMenuDialog(this.id)">Show Now</a>
+                </div>
+              </div>
+          </div>
+        
+          
+    </div> 
+    
+
+    <div class="Feedback">
+      <form action="feedback.php" method="post">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" placeholder=" Enter Your Name"><br><br>
+        <label for="email">Email address</label>
+        <input type="email" name="email" id="email" placeholder=" Enter your email"><br><br>
+        <label for="comment">Feedback</label>
+        <br><textarea name="comment" id="comment" cols="30" rows="10"></textarea> 
+        <button id="submit" value="submit">Submit</button>
+      </form>
+    </div>
+
+<p id="result" style="background-color: blue"></p>
+    </div>
+    <div class="About-us">
+      <h1>About us</h1>
+      <div class="expandable-div">
+       <p>
+        Welcome to our restaurant, where we bring the future of dining to your plate. Our innovative approach blends cutting-edge technology with exquisite cuisine for a truly unforgettable experience.
+, <br> where we bring the future of dining to your plate. Our innovative approach blends cutting-edge technology with exquisite cuisine for a truly unforgettable experience.</p>
+<p id="dots">...</p>
+<p id="more" style="display:none ;">
+<br>
+From the moment you step inside, you'll be transported to a world of sleek lines and bold colors that set the stage for an evening of culinary adventure. Our chefs work tirelessly in our state-of-the-art kitchen, using only the freshest ingredients and modern techniques to create dishes that are as beautiful as they are delicious.
+<br><br>
+But it's not just about what's on your plate at our restaurant; it's also about how you interact with it. Each table is equipped with its own interactive screen that allows you to customize your order, learn more about each dish, and even watch live video streams of our chefs at work.
+<br><br>
+And when it comes time for dessert, prepare yourself for something truly out-of-this-world. Using advanced 3D printing technology, we're able to create sweets that defy both expectation and imagination – from edible holograms to miniature planetary systems made entirely out of sugar.
+<br><br>
+At our futuristic-themed restaurant, every detail has been carefully considered so that you can relax and savor every bite without distraction. We invite you on this journey through taste and technology – boldly going where no diner has gone before!
+<br><br>
+       </p>
+
+       <button id="myBtn" class="button" onclick="showMore()">Read more</button>
+        
+      </div>
+     <h1>Outlet</h1> 
+    </div>
+    <div class="outlet" id="outlet"> 
+     
+      <div class="Card">
+        <h1>Delhi</h1>
+        <h3>M3FP+6H5, Guru Harkishan Gurdwara Ln, Guru Harkishan Nagar, Paschim Vihar, Delhi, 110087</h3>
+      </div>
+      <div class="Card">
+        <h1>Bangaluru</h1>
+        <h3>
+          Krishna Complex, 14, 4Th Floor, Museum Rd, Bengaluru, Karnataka 560001
+          </h3>
+      </div>
+    </div>
+    <br><br>
+    <!-- ======= Book A Table Section ======= -->
+    <section id="book-a-table" class="book-a-table">
+      <div class="form">
+
+        <div class="contact">
+          <h2>Book a <span>Table</span></h2>
+          <p>Reserve a table by entering your details</p>
+        </div>
+        <form action="connect.php" method="post">
+          <div class="row">
+            <div class="Feedback">
+              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+              <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group mt-3">
+              <input type="text" name="date" class="form-control" id="date" placeholder="Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group mt-3">
+              <input type="text" class="form-control" name="time" id="time" placeholder="Time" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group mt-3">
+              <input type="number" class="form-control" name="people" id="people" placeholder="# of people" data-rule="minlen:1" data-msg="Please enter at least 1 chars">
+              <div class="validate"></div>
+            </div>
+          </div>
+          <div class="form-group mt-3">
+            <textarea class="form-control" name="message" rows="3" placeholder="Message"></textarea>
+            <div class="validate"></div>
+          </div>
+          <div class="button"><button type="submit">Send Message</button></div>
+        </form>
+
+      </div>
+    </section><!-- End Book A Table Section -->
+<div class="contact" id="Contact">
+  <h1>Contact us</h1>
+  <div class="items">
+    <div class="con call">
+  <table>
+    <tr>
+      <td rowspan="2"><img src="/assets/kol.png" alt=""></td>
+      <th>Call us</th>
+    </tr>
+    <tr>
+      <td>8946598275</td>
+    </tr>
+  </table>
+</div>
+<div class="con email">
+  <table>
+    <tr>
+      <td rowspan="2"><img src="/assets/email.png" alt=""></td>
+      <th>Email</th>
+    </tr>
+    <tr>
+      <td>CyberBrew.Oasis@restaurant.com</td>
+    </tr>
+  </table>
+</div>
+<div class="con location">
+  <table>
+    <tr>
+      <td rowspan="2"><img src="/assets/location.png" alt=""></td>
+      <th>Location</th>
+    </tr>
+    <tr>
+      <td>Bangaluru,<br>
+        Karnataka</td>
+    </tr>
+  </table>
+</div>
+  </div>
+
+</div>
+<footer>
+  <a href="#">Privacy policy</a>
+  
+  <a href="#">Terms of use</a>
+  <div class="info">
+  <p id="info"></p>  
+  </div>
+  
+</footer>
+    <script src="main.js"></script>
 </body>
-</html>
+</html>   
+
